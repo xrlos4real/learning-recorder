@@ -12,7 +12,10 @@ def create_app():
     app.config.from_object(Config)
 
     # CORS — 允许跨域
-    CORS(app)
+    CORS(app, origins=[
+    "http://localhost:5173",
+    "https://learning-recorder-xxx.vercel.app"  # 换成你的真实域名
+])
 
     # 禁用严格尾部斜杠，避免 /api/logs → /api/logs/ 重定向
     app.url_map.strict_slashes = False
